@@ -8,6 +8,6 @@ I'll list the files here and what they are used for in due course. Some of the f
 Plans
 ---------------------------------------------------------------------------------------------------------------------------------------------
 I'll add different HTML files here as time prograsses. 
-This repo is stuff thought i'd share with anyone who's interested.
+This repo is stuff that i thought i'd share with anyone who's interested.
 
 Peter.
