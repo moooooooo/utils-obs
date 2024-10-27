@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="300" />
+  <title>Weather</title>
+<style type="CSS">
+   
+.shadowbox {
+width: 15em;
+border: 1px solid #333;
+box-shadow: 8px 8px 5px #444;
+padding: 8px 12px;
+background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+}
+</style>
+
+</head>
+
+<body translate="no" >
+<!-- orig from here https://cdn.rawgit.com/sam0737/a0ee8ca253fc5c84b2aa2ac018f7b8ad/raw/108196e17c2c9d79ff60ed3bf788973ab94da9af/clock.html?style=font:%20bold%2050px%20monospace;%20color:%20lightgray;%20display:%20inline-block;%20border-radius:%205px;%20padding:%202px%205px;background-color:%20rgba(0,0,0,0.5);&format=hh:mm:ss%20DD/MM/YYYY 
+via this OBS Forum: https://obsproject.com/forum/resources/time-and-or-date-overlay-solved.753/
+
+-->
+  <div id="output">
+
+  </div>
+
+<!--  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
+-->
+<script>
+
+// https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+
+var urlParams;
+(function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
+
+var output = document.getElementById("output");
+if (urlParams["style"]) output.setAttribute("style", urlParams["style"]);
+if (urlParams["bodyStyle"]) document.body.setAttribute("style", urlParams["bodyStyle"]);
+
+var c;
+setInterval(
+c = function() {
+    output.innerText = moment().format(urlParams["format"] || '');
+}, 1000);
+c();
+
+  </script>
+
+<!-- <div style="background-color: blueviolet; height: 200; width: 1280;font-size: 110pt;">CMP AKL, NZ</div>
+-->
+<!-- <div class="shadowbox" style="background-color: rgb(71, 68, 73); color: rgb(126, 111, 173); height: 200; 
+width: 1280; color: rgb(111, 173, 154);
+display: inline-block; -->
+<div style="background-color: rgba(0,0,0,0.5);
+
+vertical-align: middle;
+
+
+border-radius: 5px;
+padding: 2px 5px;
+">
+<img src="https://www.metservice.com/publicData/rainRadar/image/Auckland/120K/" width="1920" height="1080">
+
+</div>
+<!-- 
+Peter Moore, Founder, CMP. AKL, NZ
+
+style=font: bold 50px monospace; 
+color: lightgray; 
+display: inline-block; 
+border-radius: 5px; 
+padding: 2px 5px;
+background-color:rgba(0,0,0,0.5)    
+-->
+</body>
+</html>
